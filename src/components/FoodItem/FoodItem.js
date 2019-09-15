@@ -2,14 +2,14 @@ import React from 'react';
 
 import './FoodItem.css';
 
-const FoodItem = ({item1,item2,item3,item4,item5}) => {
+const FoodItem = ({itemsToShow}) => {
     return(
         <div className='FoodItem'>
-            <h3 className=''> Item1: {item1} </h3>
-            <h3 className=''> Item2: {item2} </h3>
-            <h3 className=''> Item3: {item3} </h3>
-            <h3 className=''> Item4: {item4} </h3>
-            <h3 className=''> Item5: {item5} </h3>
+            <h3 className='Items'> Item1: {itemsToShow[0]} </h3>
+            <h3 className='Items'> Item2: {itemsToShow[1]} </h3>
+            <h3 className='Items'> Item3: {itemsToShow[2]} </h3>
+            <h3 className='Items'> Item4: {itemsToShow[3]} </h3>
+            <h3 className='Items'> Item5: {itemsToShow[4]} </h3>
         </div>
     );
 }

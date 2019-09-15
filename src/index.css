@@ -7,10 +7,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #05386B; */
   /* background-color: black; */
-  background: linear-gradient(to left, black, #C3073F)
+  background-color:#121212;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  monospace;
+}
+
+.Container{
+  background-color: rgba(50,50,50,0.5);    align-self: center;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    padding-top:5vh;
+    padding-left:8vh;
+    padding-right:8vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    outline: 4px solid rgba(142,71,234,0.4);
+    outline-offset: -15px;
+    padding-bottom: 25px;
 }

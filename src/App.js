@@ -14,6 +14,7 @@ const initialState = {
   item3: '',
   item4: '',
   item5: '',
+  items:[]
     // item6: '',
     // item7: '',
     // item8: '',
@@ -37,7 +38,7 @@ const Particleoptions = {
   }
 }
 
-
+let itemsToShow = [];
 
 class App extends Component {
   constructor() {
@@ -51,7 +52,8 @@ class App extends Component {
   }
 
   onButtonSubmit = () => {
-    this.setState({item1:'',item2:'',item3:'',item4:'',item5:''});
+    
+    //this.setState({item1:'',item2:'',item3:'',item4:'',item5:''});
     this.setState({imageUrl: this.state.input})
     app.models.predict(Clarifai.FOOD_MODEL, this.state.imageUrl).then(
     function(response) {
@@ -60,29 +62,33 @@ class App extends Component {
       var i;
       for(i=0;i<response.rawData.outputs[0].data.concepts.length;i++)
        {
-         console.log(JSON.stringify(response.rawData.outputs[0].data.concepts[i].name));
+         itemsToShow.push(JSON.stringify(response.rawData.outputs[0].data.concepts[i].name))
        }
-      this.setProps(JSON.stringify(response.rawData.outputs[0].data.concepts[0].name),
-        response.rawData.outputs[0].data.concepts[1].name,
-        response.rawData.outputs[0].data.concepts[2].name,
-        response.rawData.outputs[0].data.concepts[3].name,
-        response.rawData.outputs[0].data.concepts[4].name
-        );
+      
+       console.log(itemsToShow);
+      //  this.setState({
+      //   items:itemsToShow
+      // })
+      // this.setProps(JSON.stringify(response.rawData.outputs[0].data.concepts[0].name),
+      //   response.rawData.outputs[0].data.concepts[1].name,
+      //   response.rawData.outputs[0].data.concepts[2].name,
+      //   response.rawData.outputs[0].data.concepts[3].name,
+      //   response.rawData.outputs[0].data.concepts[4].name
+      //   );
     });
 }
 
   render() {
     return (
     <div className="App">
+      <div className='Container'>
+        <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
+        <ImageDisplay imageUrl={this.state.imageUrl} />
+        <h1> {this.state.item1} </h1>
+        <FoodItem itemsToShow = {itemsToShow} />
+        {itemsToShow=[]}
+      </div>
       {/* <Particles className='particles' params={Particleoptions} /> */}
-      <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
-      <ImageDisplay imageUrl={this.state.imageUrl} />
-      <h1> {this.state.item1} </h1>
-      <FoodItem item1={this.state.item1} 
-        item2={this.state.item2} 
-        item3={this.state.item3} 
-        item4={this.state.item4} 
-        item5={this.state.item5} />
     </div>
   );
   }

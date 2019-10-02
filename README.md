@@ -3,3 +3,28 @@
 ![foods](https://github.com/lahirukawijes/FoodItemDetection/blob/documentation-contributions/images/foods.jpg)
 
 This software helps you to identify food items in an image when you enter the image url. It uses machine learning algorithms to identify images. 
+
+### How to setup
+
+### Prerequisites
+
+### Instructions To Use The Program
+```
+* Copy the URL of the image you need to process
+* Paste it in the specified area and click "Click here" button.
+
+```
+
+### To do
+
+### Deployment
+
+### Built With
+
+### Developers
+
+### Contributors
+
+### License
+
+## Acknowledgments

@@ -5,7 +5,12 @@
 This software helps you to identify food items in an image when you enter the image url. It uses machine learning algorithms to identify images. 
 
 ### How to setup
+```
+After cloning the repository, run the following in the terminal
+* npm install
+* npm start
 
+```
 ### Prerequisites
 
 ### Instructions To Use The Program
